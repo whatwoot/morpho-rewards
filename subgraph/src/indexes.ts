@@ -45,7 +45,7 @@ const computeUpdatedMorphoIndex = (
   // sync eventual previous epoch
   const prevEpochId = getAgeAndEpoch(lastUpdateBlockTimestamp);
   const currentEpochId = getAgeAndEpoch(blockTimestamp);
-  if (!currentEpochId) return lastMorphoIndex;
+  if (currentEpochId === null) return lastMorphoIndex;
   const emissionId = currentEpochId + "-" + marketSide;
   if (!prevEpochId && currentEpochId) {
     // start of the first epoch
